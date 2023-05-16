@@ -7,13 +7,16 @@
     "test": "test"
   },
   "scripts": {
+    "start": "netlify dev",
+    "serve": "live-server --port=3000 --no-browser --ignore=node_modules",
     "test": "exit 0",
-    "netlify": "netlify login"
+    "netlify": "netlify status"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "live-server": "^1.2.2",
     "netlify-cli": "^15.1.0"
   }
 }
