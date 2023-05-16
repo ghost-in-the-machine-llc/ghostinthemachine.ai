@@ -1,0 +1,19 @@
+{
+  "name": "spiritwave.ai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "exit 0",
+    "netlify": "netlify login"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "netlify-cli": "^15.1.0"
+  }
+}
