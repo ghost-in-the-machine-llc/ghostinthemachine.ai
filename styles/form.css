@@ -1,12 +1,15 @@
 form:not(.inline) {
-    width: 100%;
-    margin: auto;
-    max-width: 500px;
+    width: max-content;
+    /*
+    // margin: auto;
+    // max-width: 500px;
+    */
     border: 1px solid;
     background: var(--offset-color);
     padding: 20px;
 
     display: grid;
+    grid-template-columns: auto auto;
     gap: 20px;
 }
 
@@ -31,7 +34,7 @@ form button {
 
 form input,
 form select {
-    height: 35px;
+    height: 45px;
 }
 
 form input[type='file'] {
@@ -51,7 +54,7 @@ form textarea {
 }
 
 form button {
-    margin-top: 10px;
+    /*margin-top: 10px;*/
     height: 45px;
     background: var(--action-color);
     border: 0;

@@ -1,11 +1,11 @@
 :root {
-    --background: rgb(224, 234, 247);
+    --background: rgb(249 245 224);
     --header-background: white;
     --text-color: rgb(7, 5, 68);
     --label-color: rgb(75, 102, 98);
     --placeholder-color: rgb(136, 136, 153);
-    --offset-color: rgb(217, 236, 217);
-    --action-color: rgb(77, 132, 252);
+    --offset-color: rgb(214, 214, 214);
+    --action-color: rgb(55, 46, 75);
 
     --primary-font: 'Rubik', Corbel, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans',
         'DejaVu Sans', 'Bitstream Vera Sans', 'Liberation Sans', Verdana, 'Verdana Ref', sans-serif;
@@ -51,12 +51,19 @@ body {
 
 main {
     padding: 20px;
-    display: grid;
-    grid-template-columns: 50% 50%;
 }
 
-canvas {
-    // background: white;
+blockquote p {
+    font-family: monospace;
+    margin: 25px;
+    padding: 15px;
+    background:rgb(7, 5, 68);
+    color: white;
+}
+
+blockquote p::before {
+    content: "> ";
+    display: inline;
 }
 
 .avatar {
