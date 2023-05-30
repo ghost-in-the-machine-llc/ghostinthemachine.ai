@@ -11,7 +11,7 @@
     "serve": "live-server --port=3000 --no-browser --ignore=node_modules",
     "test": "exit 0",
     "netlify": "netlify status",
-    "publish": "marked -o content.html -i content.md --gfm"
+    "publish": "marked -o content/content.html -i content/content.md --gfm"
   },
   "keywords": [],
   "author": "",
