@@ -85,12 +85,13 @@ main {
 
 h1 {
     font-family: 'IM Fell DW Pica';
-    font-size: 5em;
+    font-size: 8vw;
 }
 
 h2 {
-    font-family: 'Neucha';
-    font-size: 2.5em;
+    font-family: 'Tillana';
+    font-weight: 600;
+    font-size: 4vw;
 }
 
 h2 .wayfinder {
