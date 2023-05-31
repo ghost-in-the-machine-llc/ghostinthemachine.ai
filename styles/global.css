@@ -1,6 +1,6 @@
 :root {
-    --background: rgb(249 245 224);
-    --header-background: white;
+    --background: rgb(246, 245, 242);
+    --header-background: rgba(255, 255, 255, 0.673);
     --text-color: rgb(7, 5, 68);
     --label-color: rgb(75, 102, 98);
     --placeholder-color: rgb(136, 136, 153);
@@ -11,37 +11,68 @@
         'DejaVu Sans', 'Bitstream Vera Sans', 'Liberation Sans', Verdana, 'Verdana Ref', sans-serif;
 }
 
+
+:root {
+    --max-section-width: 1440px;
+    --min-section-width: 320px;
+    --section-width: clamp(var(--min-section-width), 100vw, var(--max-section-width));
+    --content-width: var(--section-width);
+    --scale: calc( ( var(--content-width) - var(--min-section-width) ) / 400 );
+  
+    
+    --primary-margin: calc(20px + ( var(--scale) * 60));
+  
+    --header-height: 60px;
+    
+  }
+  
+  @media (min-width: 700px) {
+    :root {
+      --content-width: calc(var(--section-width) / 2);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    :root {
+      --header-height: 88px;
+    }
+  }
+  
+
+
 body {
-    height: 100vh;
-    font-family: var(--primary-font);
-    color: var(--text-color);
+    height: max-content;
     background: var(--background);
-    display: grid;
-    grid-template-rows: auto 1fr;
+    color: var(--text-color);
+    font-family: var(--primary-font);
+    font-size: 1.3em;
 }
 
 .page-header {
     position: sticky;
     top: 0;
-    padding: 15px;
-    height: 80px;
+    padding: 15px var(--primary-margin);
+    height: 50px;
 
     display: flex;
     align-items: center;
     gap: 10px;
 
     background-color: var(--header-background);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);*/
 }
 
 .page-header .logo {
     height: 100%;
 }
 
-.page-header .title {
-    font-size: 1.3em;
-    font-weight: 800;
+.page-header .company-name {
     flex-grow: 2;
+    font-size: 1.5em;
+    font-weight: 800;
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--text-color);
 }
 
 .page-header nav {
@@ -50,35 +81,92 @@ body {
 }
 
 main {
-    padding: 20px;
+}
+
+h1 {
+    font-family: 'IM Fell DW Pica';
+    font-size: 5em;
+}
+
+h2 {
+    font-family: 'IM Fell DW Pica';
+    font-size: 2.5em;
+}
+
+h2 .wayfinder {
+    font-family: 'Noto Sans Chorasmian';
+    text-transform:uppercase;
+    font-weight: 400;
+    font-size: .4em;
+    margin-bottom: 1em;
+    display: block;
+}
+
+section { 
+    max-width: var(--max-section-width);
+    margin-left: auto;
+    margin-right: auto;
+    height: fit-content;
+}
+
+blockquote {
+    padding: 15px var(--primary-margin);
 }
 
 blockquote p {
-    font-family: monospace;
-    margin: 25px;
-    padding: 15px;
-    background:rgb(7, 5, 68);
-    color: white;
+    max-width: 800px;
+    font-family: 'Noto Sans Chorasmian';
+    font-size: 1rem;
+    line-height: 1.75;
+    padding: 1em;
+    padding-left: 8em;
+    margin-bottom: 1.25em;
+    margin-top: 1.25em;
+    background:rgb(220 220 242);
+    color: rgb(52, 53, 65);
 }
 
-blockquote p::before {
-    content: "> ";
-    display: inline;
+.two-column {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-areas: 
+        'first'
+        'second'
+    ;
+    
+    --first-column-width: 100vw;
+    --second-column-width: 100vw;
 }
 
-.avatar {
-    height: 36px;
-    width: 36px;
-    object-fit: cover;
-    border: 1px solid var(--placeholder-color);
-    border-radius: 100%;
+section > *, footer {
+    padding-left: var(--primary-margin);
+    padding-right: var(--primary-margin);
+}
+       
+.two-column > *:first-child {
+    grid-area: first;  
 }
 
-.error {
-    min-height: 1em;
-    color: red;
+.two-column > *:last-child {
+    grid-area: second;
+    width: 100%;
+}
+        
+@media (min-width: 700px) {
+    .two-column {
+        grid-template-columns: var(--first-column-width) var(--second-column-width);
+    
+        --first-column-width: calc(var(--section-width) * .5);
+        --second-column-width: calc(var(--section-width) * .5);
+        
+        grid-template-areas: 'first second';
+    }
 }
 
-.hidden {
-    display: none;
+ul {
+    list-style-type: disc;
+}
+
+li {
+    margin-left: 1em;
 }
