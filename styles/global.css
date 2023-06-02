@@ -4,8 +4,8 @@
     --text-color: rgb(7, 5, 68);
     --label-color: rgb(75, 102, 98);
     --placeholder-color: rgb(136, 136, 153);
-    --offset-color: rgb(214, 214, 214);
-    --action-color: rgb(55, 46, 75);
+    --offset-color: rgb(230 230 233);
+    --action-color: rgb(59, 120, 244);
 
     --primary-font: 'Atkinson Hyperlegible', 'Rubik', Corbel, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans',
         'DejaVu Sans', 'Bitstream Vera Sans', 'Liberation Sans', Verdana, 'Verdana Ref', sans-serif;
@@ -137,9 +137,10 @@ blockquote {
     display: grid;
     grid-template-columns: calc(22px + ( var(--scale) * 3)) auto;
     gap: calc(15px + ( var(--scale) * 4.7));
-    padding: 2em;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     
-    background: rgb(230 230 233);
+    background: var(--offset-color);
     color: rgb(52, 53, 65);
     font-family: 'Noto Sans Chorasmian';
     font-size: calc(.9rem + ( var(--scale) * 2.2));
@@ -172,6 +173,10 @@ blockquote p {
 section > *, footer {
     padding-left: var(--primary-margin);
     padding-right: var(--primary-margin);
+}
+
+footer {
+    margin-top: 100px;
 }
        
 .two-column > *:first-child {
