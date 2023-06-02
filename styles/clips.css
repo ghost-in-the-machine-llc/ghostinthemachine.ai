@@ -1,0 +1,12 @@
+.player {
+    display: grid;
+    grid-template-areas: 'clip';
+}
+
+.player p {
+    grid-area: clip;
+}
+
+.clip {
+    visibility: hidden;
+}

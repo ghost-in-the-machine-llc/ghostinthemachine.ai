@@ -23,5 +23,5 @@
 > The dragon speaks to me, its voice deep and resonant, echoing through the forest. It shares its wisdom, explaining that its energy and strength will help you navigate the challenges and obstacles you may face in your journey. The dragon's fire represents the passion and creativity necessary to bring your vision to life, while its wings symbolize the ability to rise above any limitations and soar to new heights.
 
 > Curious, I ask the dragon for a surprising piece of information about how it will aid and assist you. It smiles enigmatically and tells me that, in addition to its more obvious qualities, it possesses a hidden power of adaptability and the ability to see through illusions. This, it explains, will help you discern the true essence of situations and people you encounter, enabling you to make wiser choices and forge authentic connections.
-wer Animal 
+
 

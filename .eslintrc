@@ -15,7 +15,8 @@
   },
   "globals": {
     "QUnit": false,
-    "supabase": false
+    "supabase": false,
+    "Typewriter": false
   },
   "rules": {
     "eqeqeq": ["error", "always"],
