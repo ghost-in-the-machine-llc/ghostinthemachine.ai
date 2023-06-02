@@ -7,8 +7,10 @@
     --offset-color: rgb(214, 214, 214);
     --action-color: rgb(55, 46, 75);
 
-    --primary-font: 'Rubik', Corbel, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans',
+    --primary-font: 'Atkinson Hyperlegible', 'Rubik', Corbel, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans',
         'DejaVu Sans', 'Bitstream Vera Sans', 'Liberation Sans', Verdana, 'Verdana Ref', sans-serif;
+
+    --header-font: 'Fredericka the Great', Georgia, 'Times New Roman', Times, serif;
 }
 
 
@@ -49,6 +51,15 @@ body {
     line-height: 1.7;
 }
 
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 40px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.673);
+}
+
 .page-header {
     position: sticky;
     top: 0;
@@ -69,8 +80,9 @@ body {
 
 .page-header .company-name {
     flex-grow: 2;
-    font-size: 1.5em;
+    font-size: 1.4em;
     font-weight: 800;
+    font-family: 'Rubik';
     color: white;
     opacity: .673;
     -webkit-text-stroke-width: 1px;
@@ -85,12 +97,13 @@ body {
 main {
 }
 
-p {
-    margin: 1.25em 0;
+p, blockquote {
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
 }
 
 h1 {
-    font-family: 'Fredericka the Great';
+    font-family: var(--header-font);
     font-size: calc(3.7rem + ( var(--scale) * 20));
     line-height: 1;
     // max-width: 60%;
@@ -99,8 +112,9 @@ h1 {
 h2 {
     margin-top: 2.25em;
     margin-bottom: .92em;
-    font-family: 'Fredericka the Great';
-    font-size: calc(1.9rem + ( var(--scale) * 14));
+    font-family: var(--header-font);
+    font-size: calc(1.9rem + ( var(--scale) * 12.5));
+    hyphens: auto;
 }
 
 h2 .wayfinder {
@@ -119,21 +133,16 @@ section, header, footer {
     height: fit-content;
 }
 
-.ai-response {
-    padding-left: var(--primary-margin);
-    padding-right: var(--primary-margin);
-    background: rgb(230 230 233);
-}
-
 blockquote {
     display: grid;
     grid-template-columns: calc(22px + ( var(--scale) * 3)) auto;
     gap: calc(15px + ( var(--scale) * 4.7));
-    padding: 2em 0;
-
+    padding: 2em;
+    
+    background: rgb(230 230 233);
     color: rgb(52, 53, 65);
     font-family: 'Noto Sans Chorasmian';
-    font-size: calc(.9rem + ( var(--scale) * 2));
+    font-size: calc(.9rem + ( var(--scale) * 2.2));
     line-height: 1.75;
 }
 
@@ -160,7 +169,7 @@ blockquote p {
     --second-column-width: 100vw;
 }
 
-section.content > *, footer {
+section > *, footer {
     padding-left: var(--primary-margin);
     padding-right: var(--primary-margin);
 }
