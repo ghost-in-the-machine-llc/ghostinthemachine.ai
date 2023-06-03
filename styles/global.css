@@ -4,15 +4,18 @@
     --text-color: rgb(7, 5, 68);
     --label-color: rgb(75, 102, 98);
     --placeholder-color: rgb(136, 136, 153);
-    --offset-color: rgb(230 230 233);
     --action-color: rgb(59, 120, 244);
+    
+    --ai-background: rgb(230 230 233);
+    --ai-color: rgb(52, 53, 65);
+    --ai-font: 'Noto Sans Chorasmian';
 
     --primary-font: 'Atkinson Hyperlegible', 'Rubik', Corbel, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans',
         'DejaVu Sans', 'Bitstream Vera Sans', 'Liberation Sans', Verdana, 'Verdana Ref', sans-serif;
 
     --header-font: 'Fredericka the Great', Georgia, 'Times New Roman', Times, serif;
+    --company-font: 'Rubik';
 }
-
 
 :root {
     --max-section-width: 1440px;
@@ -23,7 +26,6 @@
     --half-scale: calc( ( var(--content-width) - var(--min-section-width) ) / 400 );
     
     --primary-margin: calc(10px + ( var(--scale) * 60));
-  
     --header-height: 60px;
     
   }
@@ -40,7 +42,7 @@
     }
   }
   
-
+/* body */
 
 body {
     height: max-content;
@@ -60,71 +62,33 @@ body::before {
     background: rgba(255, 255, 255, 0.673);
 }
 
+/* page header */
+
 .page-header {
     position: sticky;
     top: 0;
-    padding: 15px var(--primary-margin);
     height: 40px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 
     display: flex;
     align-items: center;
     gap: 10px;
 
-    // background-color: var(--header-background);
-    /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);*/
-}
-
-.page-header .logo {
-    height: 100%;
 }
 
 .page-header .company-name {
     flex-grow: 2;
-    font-size: 1.4em;
-    font-weight: 800;
-    font-family: 'Rubik';
     color: white;
     opacity: .673;
+    font-family: var(--company-font);
+    font-size: 1.4em;
+    font-weight: 800;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: var(--text-color);
 }
 
-.page-header nav {
-    display: flex;
-    gap: 10px;
-}
-
-main {
-}
-
-p, blockquote {
-    margin-top: 1.25em;
-    margin-bottom: 1.25em;
-}
-
-h1 {
-    font-family: var(--header-font);
-    font-size: calc(3.7rem + ( var(--scale) * 20));
-    line-height: 1;
-    // max-width: 60%;
-}
-
-h2 {
-    margin-top: 2.25em;
-    margin-bottom: .92em;
-    font-family: var(--header-font);
-    font-size: calc(1.9rem + ( var(--scale) * 12.5));
-    hyphens: auto;
-}
-
-h2 .wayfinder {
-    display: block;
-    font-family: 'Comfortaa';
-    font-weight: 700;
-    font-size: calc(1rem + ( var(--scale) * 3));
-    line-height: 2.2;
-    text-transform:uppercase;
-}
+/* layout and spacing */
 
 section, header, footer { 
     max-width: var(--max-section-width);
@@ -133,6 +97,66 @@ section, header, footer {
     height: fit-content;
 }
 
+section {
+    --margin: 8em;
+    margin-bottom: var(--margin);
+}
+
+section > *, header, footer {
+    padding-left: var(--primary-margin);
+    padding-right: var(--primary-margin);
+}
+
+footer {
+    margin-top: 100px;
+}
+
+p, blockquote {
+    --margin: 1.25em;
+    margin-top: var(--margin);
+    margin-bottom: var(--margin);
+}
+
+p, blockquote {
+    --margin: 2.25em;
+    margin-top: var(--margin);
+    margin-bottom: var(--margin);
+}
+
+/* headings */
+
+h1 {
+    margin-top: 1em;
+    margin-bottom: 1.7em;
+    font-family: var(--header-font);
+    font-size: calc(3.7rem + ( var(--scale) * 20));
+    line-height: 1;
+}
+
+h2 {
+    margin-bottom: 1.7em;
+    font-family: var(--header-font);
+    font-size: calc(1.9rem + ( var(--scale) * 10.2));
+    line-height: 1.5;
+    hyphens: auto;
+}
+
+h2 > span, .wayfinder > span {
+    white-space: nowrap;
+}
+
+h2 .wayfinder {
+    display: block;
+    margin-bottom: 0.8em;
+    font-family: 'Comfortaa';
+    font-weight: 700;
+    font-size: calc(1rem + ( var(--scale) * 3));
+    line-height: 1.4;
+    text-transform:uppercase;
+}
+
+/* ai-response */
+
 blockquote {
     display: grid;
     grid-template-columns: calc(22px + ( var(--scale) * 3)) auto;
@@ -140,9 +164,9 @@ blockquote {
     padding-top: 3rem;
     padding-bottom: 3rem;
     
-    background: var(--offset-color);
-    color: rgb(52, 53, 65);
-    font-family: 'Noto Sans Chorasmian';
+    background: var(--ai-background);
+    color: var(--ai-color);
+    font-family: var(--ai-font);
     font-size: calc(.9rem + ( var(--scale) * 2.2));
     line-height: 1.75;
 }
@@ -156,47 +180,6 @@ blockquote img {
 blockquote p {
     padding: 0;
     margin: 0;
-}
-
-.two-column {
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-areas: 
-        'first'
-        'second'
-    ;
-    
-    --first-column-width: 100vw;
-    --second-column-width: 100vw;
-}
-
-section > *, footer {
-    padding-left: var(--primary-margin);
-    padding-right: var(--primary-margin);
-}
-
-footer {
-    margin-top: 100px;
-}
-       
-.two-column > *:first-child {
-    grid-area: first;  
-}
-
-.two-column > *:last-child {
-    grid-area: second;
-    width: 100%;
-}
-        
-@media (min-width: 700px) {
-    .two-column {
-        grid-template-columns: var(--first-column-width) var(--second-column-width);
-    
-        --first-column-width: calc(var(--section-width) * .5);
-        --second-column-width: calc(var(--section-width) * .5);
-        
-        grid-template-areas: 'first second';
-    }
 }
 
 ul {
