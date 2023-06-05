@@ -16,7 +16,6 @@ form.addEventListener('submit', async (e) => {
 
     try {
         await addToWaitList(email);
-
         updateMessage(`You've been added to the waitlist!`);
         form.elements.email.blur();
         form.reset();
@@ -29,32 +28,35 @@ form.addEventListener('submit', async (e) => {
             // eslint-disable-next-line no-console
             console.log(e);
             updateMessage(
-                `Unexpected error: ${e.message ?? ''}, 
-                please try again later`
+                `Unexpected error, please try again later.`
             );
         }
     }
 });
 
+const WAITLIST_URL =
+    'https://zekxhqiqlnzydflpmddi.supabase.co/rest/v1/waitlist';
+const API_KEY =
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inpla3hocWlxbG56eWRmbHBtZGRpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODU5MTg3OTMsImV4cCI6MjAwMTQ5NDc5M30.ON3_y07S6C1hZfmLoz1GdsmCuaiTkEnffDnIFsYAUbA';
 const DUPLICATE_EMAIL = 'DUPLICATE_EMAIL';
 
 async function addToWaitList(email) {
-    const r = await fetch(
-        'https://zekxhqiqlnzydflpmddi.supabase.co/rest/v1/waitlist',
-        {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                apikey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inpla3hocWlxbG56eWRmbHBtZGRpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODU5MTg3OTMsImV4cCI6MjAwMTQ5NDc5M30.ON3_y07S6C1hZfmLoz1GdsmCuaiTkEnffDnIFsYAUbA',
-                // Prefer: 'return=representation',
-            },
-            body: JSON.stringify({ email }),
-        }
-    );
+    const r = await fetch(WAITLIST_URL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            apikey: API_KEY,
+            // Prefer: 'return=representation',
+        },
+        body: JSON.stringify({ email }),
+    });
 
-    const body = await r.json();
-
-    if (!r.ok && r.status === 409 && body.code === '23505') {
-        throw new Error(DUPLICATE_EMAIL);
+    if (!r.ok) {
+        const body = await r.json();
+        throw r.status === 409 && body.code === '23505'
+            ? new Error(DUPLICATE_EMAIL)
+            : body;
     }
+
+    return null;
 }
