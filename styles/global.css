@@ -5,46 +5,33 @@
     --label-color: rgb(75, 102, 98);
     --placeholder-color: rgb(136, 136, 153);
     --action-color: rgb(59, 120, 244);
-
-    --primary-font: 'Atkinson Hyperlegible', 'Rubik', Corbel, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans',
-        'DejaVu Sans', 'Bitstream Vera Sans', 'Liberation Sans', Verdana, 'Verdana Ref', sans-serif;
-
-    
 }
 
 :root {
-    --max-section-width: 1440px;
-    --min-section-width: 320px;
+    --max-section-width: 1200px;
+    --min-section-width: 300px;
     --section-width: clamp(var(--min-section-width), 100vw, var(--max-section-width));
-    --content-width: var(--section-width);
-    --scale: calc( ( var(--section-width) - var(--min-section-width) ) / 400 );
-    --gutter-margin: calc(10px + ( var(--scale) * 60));
+    
+    --scale: calc( ( var(--section-width) - var(--min-section-width) ) / (1200 - 300) );
     --half-scale: calc( --scale / 2 );
-    
-    
-    
-  }
-  
-  @media (min-width: 700px) {
-    :root {
-      --content-width: calc(var(--section-width) / 2);
-    }
-  }
 
-.hidden {
-    display: none;
+    --gutter-margin: calc(10px + ( var(--scale) * 80));    
 }
-  
+
+
 /* body */
 
 body {
+    --primary-font: 'Atkinson Hyperlegible', 'Rubik', Corbel, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans',
+        'DejaVu Sans', 'Bitstream Vera Sans', 'Liberation Sans', Verdana, 'Verdana Ref', sans-serif; 
     height: max-content;
     background: var(--background);
     color: var(--text-color);
     font-family: var(--primary-font);
-    font-size: calc(1.2rem + ( var(--scale) * 3));
+    font-size: calc(1rem + ( var(--scale) * 5));
     line-height: 1.7;
 }
+
 
 /* page header */
 
@@ -55,7 +42,7 @@ body::before {
     top: 0;
     height: 40px;
     width: 100%;
-    background: rgba(255, 255, 255, 0.673);
+    background: var(--header-background);
 }
 
 .page-header {
@@ -68,25 +55,25 @@ body::before {
     display: flex;
     align-items: center;
     gap: 10px;
-
 }
 
 .page-header .company-name {
     --company-font: 'Rubik';
-
     flex-grow: 2;
     color: white;
     opacity: .673;
     font-family: var(--company-font);
     font-size: 1.4em;
-    font-weight: 800;
+    font-weight: 600;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: var(--text-color);
 }
 
+
 /* layout and spacing */
 
 section, header, footer { 
+    min-width: var(--min-section-width);
     max-width: var(--max-section-width);
     margin-left: auto;
     margin-right: auto;
@@ -94,12 +81,10 @@ section, header, footer {
 }
 
 section {
-    --margin: 8em;
-    margin-bottom: var(--margin);
+    margin-bottom: 4.9em;
 }
 
 section > *, header, footer {
-    
     padding-left: var(--gutter-margin);
     padding-right: var(--gutter-margin);
 }
@@ -108,14 +93,14 @@ footer {
     margin-top: 100px;
 }
 
-p, blockquote {
-    --margin: 1.25em;
+p {
+    --margin: 1.5em;
     margin-top: var(--margin);
     margin-bottom: var(--margin);
 }
 
-p, blockquote {
-    --margin: 2.25em;
+blockquote {
+    --margin: 2.1em;
     margin-top: var(--margin);
     margin-bottom: var(--margin);
 }
@@ -128,15 +113,15 @@ h1, h2 {
 }
 
 h1 {
-    margin-top: 1em;
-    margin-bottom: 1.7em;
-    font-size: calc(3.7rem + ( var(--scale) * 20));
+    margin-top: .9em;
+    margin-bottom: 1em;
+    font-size: calc(3.7rem + ( var(--scale) * 60));
     line-height: 1;
 }
 
 h2 {
-    margin-bottom: 1.7em;
-    font-size: calc(1.9rem + ( var(--scale) * 10.2));
+    margin-bottom: 1.4em;
+    font-size: calc(1.7rem + ( var(--scale) * 17));
     line-height: 1.5;
     hyphens: auto;
 }
@@ -150,7 +135,7 @@ h2 .wayfinder {
     margin-bottom: 0.8em;
     font-family: 'Comfortaa';
     font-weight: 700;
-    font-size: calc(1rem + ( var(--scale) * 3));
+    font-size: calc(.9rem + ( var(--scale) * 2));
     line-height: 1.4;
     text-transform:uppercase;
 }
