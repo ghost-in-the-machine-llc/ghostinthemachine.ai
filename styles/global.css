@@ -2,7 +2,7 @@
     --background: rgb(246, 245, 242);
     --header-background: rgba(255, 255, 255, 0.673);
     --text-color: rgb(7, 5, 68);
-    --label-color: rgb(75, 102, 98);
+    --lead-color: rgb(95 95 107);
     --placeholder-color: rgb(136, 136, 153);
     --action-color: rgb(59, 120, 244);
 }
@@ -29,14 +29,15 @@ body {
     color: var(--text-color);
     font-family: var(--primary-font);
     font-size: calc(1rem + ( var(--scale) * 5));
+    font-style: normal;
+    font-stretch: normal;
+    font-optical-sizing: auto;
     line-height: 1.7;
 }
 
 .emphasis {
     font-style: italic;
 }
-
-
 
 
 /* page header */
@@ -67,12 +68,13 @@ body::before {
     --company-font: 'Rubik';
     flex-grow: 2;
     color: white;
-    opacity: .673;
+    opacity: 0.85;
     font-family: var(--company-font);
     font-size: 1.4em;
     font-weight: 600;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: var(--text-color);
+    text-shadow: rgb(255 255 255) 0 0 20px;
 }
 
 
@@ -114,8 +116,9 @@ blockquote {
 .lead {
     margin-top: 1.35em;
     margin-bottom: 1.6em;
+    color: var(--lead-color);
     font-weight: 600;
-    font-size: calc(1.05rem + ( var(--scale) * 5));
+    font-size: calc(1.05rem + ( var(--scale) * 6));
 }
 
 
@@ -124,6 +127,10 @@ blockquote {
 h1, h2 {
     --header-font: 'Fredericka the Great', Georgia, 'Times New Roman', Times, serif;
     font-family: var(--header-font);
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    font-optical-sizing: auto;
 }
 
 h1 {
