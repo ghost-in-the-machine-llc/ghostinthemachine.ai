@@ -1,6 +1,6 @@
-const { Typewriter } = await import('./typewriter.js');
-const players = document.querySelectorAll('.player');
+import Typewriter from './typewriter.js';
 
+const players = document.querySelectorAll('.player');
 players.forEach(displayClips);
 
 function displayClips(player) {

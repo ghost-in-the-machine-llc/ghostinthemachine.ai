@@ -1,2 +1,2 @@
 import './waitlist.js';
-import('./players.js');
+import './players.js';
