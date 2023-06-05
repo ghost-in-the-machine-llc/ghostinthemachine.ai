@@ -1,40 +1,20 @@
-form:not(.inline) {
+form {
     background: var(--offset-color);
-    max-width: 10000px;
-
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 20px;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
 }
 
-label {
-    font-family: 'Titillium Web';
-    font-size: 0.9em;
-    font-weight: bold;
-    color: var(--label-color);
-
-    display: grid;
-    gap: 5px;
+fieldset {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 10px;
 }
 
-form input,
-form textarea,
-form select,
-form button {
-    width: 100%;
-    font-size: calc(1.2rem + ( var(--scale) * 3));
-    padding: 5px;
-}
-
-form input,
-form select {
+form input {
+    min-width: 310px;
+    font-size: calc(1rem + ( var(--scale) * 3));
+    padding: 7px;
+    flex-grow: 2;
     height: 45px;
-}
-
-form input[type='file'] {
-    padding: 0;
 }
 
 form select:invalid,
@@ -42,16 +22,11 @@ form *::placeholder {
     color: var(--placeholder-color);
 }
 
-form textarea {
-    height: 70px;
-    padding: 5px;
-    font-family: 'Rubik';
-    resize: vertical;
-}
-
 form button {
-    /*margin-top: 10px;*/
+    flex-grow: 1;
     height: 45px;
+    padding: 7px 1.5em;
+    font-size: calc(1.2rem + ( var(--scale) * 3));
     background: var(--action-color);
     border: 0;
     color: white;
@@ -59,4 +34,9 @@ form button {
 
 form button:disabled {
     opacity: 0.5;
+}
+
+#message-display {
+    font-size: 1.1em;
+    font-weight: 900;
 }

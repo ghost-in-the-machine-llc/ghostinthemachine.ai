@@ -13,7 +13,7 @@
 
     <!-- js -->
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-    <script type="module" src="app.js"></script>
+    <script type="module" src="src/app.js"></script>
 
     <!-- fonts -->
     <link rel="stylesheet" href="/styles/reset.css" />
@@ -208,17 +208,18 @@
                 towards a better world.</p>
             <p>The journey begins here:</p>
 
-            <form onsubmit="return false">
-                <input>
-                <button>Join the Waitlist</button>
+            <form>
+                <fieldset>
+                    <input type="email" name="email" required>
+                    <button>Join the Waitlist</button>
+                </fieldset>
             </form>
+            <p id="message-display"></p>
 
         </section>
     </main>
 
     <footer>&copy;2023 Ghost in the Machine LLC</footer>
-
-    <script type="module" src="app.js"></script>
 </body>
 
 </html>

@@ -1,12 +1,6 @@
 const players = document.querySelectorAll('.player');
 players.forEach(displayClips);
 
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
 function displayClips(player) {
     const display = player.querySelector('.display');
     const clips = player.querySelectorAll('.clip');
@@ -24,12 +18,12 @@ function displayClips(player) {
         words.forEach((w, i) => {
             if (!w) return;
             if (i) w = ' ' + w;
-            const pause = getRandomInt(2, 160);
+            const pause = getRandomInt(10, 300);
             typewriter.pasteString(w).pauseFor(pause); // make random
         });
 
         typewriter
-            .pauseFor(3500)
+            .pauseFor(4500)
             .callFunction(({ elements: { wrapper } }) => {
                 wrapper.innerHTML = '';
             });
@@ -39,4 +33,10 @@ function displayClips(player) {
         typewriter.stop();
         displayClips(player);
     });
+}
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
 }

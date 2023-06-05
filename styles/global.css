@@ -18,7 +18,8 @@
     --section-width: clamp(var(--min-section-width), 100vw, var(--max-section-width));
     --content-width: var(--section-width);
     --scale: calc( ( var(--section-width) - var(--min-section-width) ) / 400 );
-    --half-scale: calc( ( var(--content-width) - var(--min-section-width) ) / 400 );
+    --gutter-margin: calc(10px + ( var(--scale) * 60));
+    --half-scale: calc( --scale / 2 );
     
     
     
@@ -29,12 +30,10 @@
       --content-width: calc(var(--section-width) / 2);
     }
   }
-  
-  @media (min-width: 1024px) {
-    :root {
-      --header-height: 88px;
-    }
-  }
+
+.hidden {
+    display: none;
+}
   
 /* body */
 
@@ -100,9 +99,9 @@ section {
 }
 
 section > *, header, footer {
-    --vertical-margin: calc(10px + ( var(--scale) * 60));
-    padding-left: var(--vertical-margin);
-    padding-right: var(--vertical-margin);
+    
+    padding-left: var(--gutter-margin);
+    padding-right: var(--gutter-margin);
 }
 
 footer {
