@@ -1,7 +1,7 @@
 import Typewriter from './typewriter.js';
 
 const players = document.querySelectorAll('.player');
-players.forEach(displayClips);
+setTimeout(() => players.forEach(displayClips));
 
 function displayClips(player) {
     const display = player.querySelector('.display');
