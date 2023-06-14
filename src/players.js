@@ -7,7 +7,7 @@ function getObserver(callback) {
     // https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#creating_an_intersection_observer
     return new IntersectionObserver(callback, {
         rootMargin: '0px',
-        threshold: 0.33,
+        threshold: 0.2,
     });
 }
 
