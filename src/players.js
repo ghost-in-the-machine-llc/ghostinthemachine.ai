@@ -1,7 +1,26 @@
 import Typewriter from './typewriter.js';
 
 const players = document.querySelectorAll('.player');
-setTimeout(() => players.forEach(displayClips));
+setTimeout(() => players.forEach(startOnVisible));
+
+function getObserver(callback) {
+    // https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#creating_an_intersection_observer
+    return new IntersectionObserver(callback, {
+        rootMargin: '0px',
+        threshold: 0.33,
+    });
+}
+
+function startOnVisible(player) {
+    const observer = getObserver((events) => {
+        events.forEach(({ isIntersecting }) => {
+            if (!isIntersecting) return;
+            observer.unobserve(player);
+            displayClips(player);
+        });
+    });
+    observer.observe(player);
+}
 
 function displayClips(player) {
     const display = player.querySelector('.display');
@@ -15,17 +34,17 @@ function displayClips(player) {
     });
 
     clips.forEach((c) => {
-        const words = c.textContent.split(/\s+/);
+        const words = c.innerHTML.split(/\s+/);
 
         words.forEach((w, i) => {
             if (!w) return;
-            if (i) w = ' ' + w;
-            const pause = getRandomInt(10, 300);
-            typewriter.pasteString(w).pauseFor(pause); // make random
+            if (w !== '<br>' && i) w = ' ' + w;
+            const pause = getRandomInt(10, 150);
+            typewriter.pasteString(w).pauseFor(pause);
         });
 
         typewriter
-            .pauseFor(4500)
+            .pauseFor(10000)
             .callFunction(({ elements: { wrapper } }) => {
                 wrapper.innerHTML = '';
             });
