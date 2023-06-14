@@ -56,12 +56,18 @@ body::before {
     position: sticky;
     top: 0;
     height: 40px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 8px;
+    padding-bottom: 9px;
 
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+.page-header > .logo {
+    opacity: 0.7;
+    height: 1.4rem;
+    color: #797795;
 }
 
 .page-header .company-name {
@@ -72,6 +78,7 @@ body::before {
     font-family: var(--company-font);
     font-size: 1.4em;
     font-weight: 600;
+    line-height: 1;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: var(--text-color);
     text-shadow: rgb(255 255 255) 0 0 20px;
@@ -177,7 +184,7 @@ blockquote {
     background: var(--ai-background);
     color: var(--ai-color);
     font-family: var(--ai-font);
-    font-size: calc(.9rem + ( var(--scale) * 2.2));
+    font-size: calc(.9rem + ( var(--scale) * 2.7));
     line-height: 1.75;
 }
 
