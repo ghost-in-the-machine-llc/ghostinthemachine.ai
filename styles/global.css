@@ -96,7 +96,7 @@ section, header, footer {
 }
 
 section {
-    margin-bottom: 4.9em;
+    margin-bottom: 8em;
 }
 
 section > *, header, footer {
@@ -115,7 +115,7 @@ p {
 }
 
 blockquote {
-    --margin: 2.1em;
+    --margin: 3.2em;
     margin-top: var(--margin);
     margin-bottom: var(--margin);
 }
@@ -168,36 +168,7 @@ h2 .wayfinder {
     text-transform:uppercase;
 }
 
-/* ai-response */
 
-blockquote {
-    display: grid;
-    grid-template-columns: calc(22px + ( var(--scale) * 3)) auto;
-    gap: calc(15px + ( var(--scale) * 4.7));
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    
-    --ai-background: rgb(230 230 233);
-    --ai-color: rgb(52, 53, 65);
-    --ai-font: 'Noto Sans Chorasmian';
-
-    background: var(--ai-background);
-    color: var(--ai-color);
-    font-family: var(--ai-font);
-    font-size: calc(.9rem + ( var(--scale) * 2.7));
-    line-height: 1.75;
-}
-
-blockquote img {
-    width: 100%;
-    border-radius: 2px;
-    margin-top: .3em;
-}
-
-blockquote p {
-    padding: 0;
-    margin: 0;
-}
 
 ul {
     list-style-type: disc;
