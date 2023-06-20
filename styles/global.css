@@ -141,8 +141,8 @@ h1, h2 {
 }
 
 h1 {
-    margin-top: .9em;
-    margin-bottom: .85em;
+    padding-top: .9em;
+    padding-bottom: .85em;
     font-size: calc(3.7rem + ( var(--scale) * 60));
     line-height: 1;
 }
@@ -168,6 +168,18 @@ h2 .wayfinder {
     text-transform:uppercase;
 }
 
+
+/* hero */
+/* .hero {
+    background: 
+    url(../assets/cb.svg), 
+    url(../assets/magic-circle.png),
+    url(../assets/lockword.gif)
+        ;
+    background-size: 50%, auto 100%, 50%;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: center center, top right, center right;
+} */
 
 
 ul {

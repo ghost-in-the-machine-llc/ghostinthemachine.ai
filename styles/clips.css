@@ -1,20 +1,13 @@
 /* ai-response */
 
 blockquote {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    
     display: grid;
     grid-template-columns: calc(22px + ( var(--scale) * 4)) auto;
     gap: calc(15px + ( var(--scale) * 4.7));
-    padding-top: 3rem;
-    padding-bottom: 3rem;
- 
-    box-shadow: 
-        1px 2px 3px rgba(0, 0, 0, 0.12),
-        1px 2px 2px rgba(0, 0, 0, 0.24),
-        0 -1px 5px rgba(0, 0, 0, 0.08),
-        0 -1px 5px rgba(0, 0, 0, 0.18)
-    ;
 
-    
     --ai-background: rgb(230 230 233);
     --ai-color: rgb(10 16 81);
     --ai-font: 'Noto Sans';
@@ -22,7 +15,6 @@ blockquote {
     --ai-name-weight: 700;
 
     background: var(--ai-background);
-    
     color: var(--ai-color);
     font-family: var(--ai-font);
     font-size: calc(.9rem + ( var(--scale) * 2.7));
