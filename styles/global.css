@@ -189,3 +189,57 @@ ul {
 li {
     margin-left: 1em;
 }
+
+.world {
+    padding: 0;
+    margin: auto;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    perspective: 1700px;
+    transform: rotateX(338deg);
+    transform-style: preserve-3d;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotateX(90deg) rotateZ(0deg);
+    }
+    100% {
+        transform: rotateX(90deg) rotateZ(360deg);
+    }
+}
+
+.circle {
+    animation-name: spin;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    
+    width: 100%;
+    height: auto;
+    transform: rotateX(90deg);
+ 
+}
+
+.wall {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+}
+
+.gears {
+    background-image: url(../assets/clockword.gif);
+    background-size: cover;
+    transform: rotateX(-90deg) translateZ(40px);
+    opacity: .35;
+}
+
+.circuit {
+    background-image: url(../assets/cb.svg);
+    background-size: cover;
+    transform: translateZ(-150px);
+}
