@@ -15,7 +15,7 @@ blockquote {
     grid-template-columns: calc(22px + ( var(--scale) * 4)) auto;
     gap: calc(15px + ( var(--scale) * 4.7));
 
-    --ai-background: rgb(230 230 233);
+    --ai-background: rgb(223 228 236);
     --ai-color: rgb(10 16 81);
     --ai-font: 'Noto Sans';
     --ai-font-weight: 300;
