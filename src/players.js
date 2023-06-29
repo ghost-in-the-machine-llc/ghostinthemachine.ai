@@ -1,4 +1,4 @@
-import Typewriter from './typewriter.js';
+import { Typewriter } from './dependencies.js';
 
 const players = document.querySelectorAll('.player');
 setTimeout(() => players.forEach(startOnVisible));
