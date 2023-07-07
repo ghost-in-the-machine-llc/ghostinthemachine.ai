@@ -64,11 +64,33 @@ body::before {
     gap: 10px;
 }
 
-.page-header > .logo {
+.page-header .logo-wrapper {
+    --duration: 4s;
+    transition: var(--duration) linear;
+    line-height: 1;
+    transform: translate(0, 1px);
+}
+
+.page-header:hover .logo-wrapper {
+    z-index: 100;
+    transform: translate(320px, 1px);
+}
+
+.page-header .logo-image {
     opacity: 0.7;
     height: 1.4rem;
     color: #797795;
+    transition: 
+        transform var(--duration) step-end,
+        opacity var(--duration) step-start
+    ;
 }
+
+.page-header:hover .logo-image {
+    opacity: .8;
+    transform: rotateY(180deg);
+}
+
 
 .page-header .company-name {
     --company-font: 'Rubik';
