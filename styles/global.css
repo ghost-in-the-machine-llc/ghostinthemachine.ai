@@ -73,7 +73,7 @@ body::before {
 
 .page-header:hover .logo-wrapper {
     z-index: 100;
-    transform: translate(320px, 1px);
+    transform: translate(17em, 1px);
 }
 
 .page-header .logo-image {
