@@ -44,7 +44,7 @@ function displayClips(player) {
         });
 
         typewriter
-            .pauseFor(10000)
+            .pauseFor(25000)
             .callFunction(({ elements: { wrapper } }) => {
                 wrapper.innerHTML = '';
             });
