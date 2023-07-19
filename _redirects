@@ -1,0 +1,4 @@
+/join /index.html 200
+/index.html /join 302!
+/ /join 302!
+/* /join 302
