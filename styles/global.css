@@ -117,7 +117,7 @@ section, header, footer {
     height: fit-content;
 }
 
-section {
+section:not(:last-child) {
     margin-bottom: 8em;
 }
 
@@ -127,7 +127,15 @@ section > *, header, footer {
 }
 
 footer {
-    margin-top: 100px;
+    margin-top: 50px;
+    font-size: calc(.7rem + ( var(--scale) * 7));
+    /* avoid the Support Us button */
+    text-align: right;
+}
+@media (min-width: 1440px) {
+    footer {
+        text-align: left;
+    }
 }
 
 p {
@@ -268,4 +276,26 @@ li {
     background-image: url(../assets/cb.svg);
     background-size: cover;
     transform: translateZ(-150px);
+}
+
+.support-arrow {
+    transform: translateX(100px) scale(.75);
+}
+
+@media (max-width: 500px) {
+    .support-arrow {
+        transform: rotateZ(-35deg) scale(.5);
+    }
+}
+
+@media (min-width: 1220px) {
+    .support-arrow {
+        transform: translateX(100px) rotateZ(20deg) scale(.75);
+    }
+}
+
+@media (min-width: 1440px) {
+    .support-arrow {
+        transform: rotateZ(20deg);
+    }
 }
